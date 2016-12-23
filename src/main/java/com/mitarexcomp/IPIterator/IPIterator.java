@@ -8,17 +8,60 @@ public class IPIterator
 {
     public static void main( String[] args )
     {
+        // запросим у пользователя начальный адрес
         System.out.println("Please enter the starting IP adress:");
         String input1 = System.console().readLine();
+        // проверим правильность записи
+        if (validateIP(input1))
+        {
+            System.out.println("OK, valid.");
+        }
+        else
+        {
+            System.out.println("Not valid.");
+            return;
+        }
+        // запросим у пользователя конечный адрес
         System.out.println("Please enter the ending IP adress:");
         String input2 = System.console().readLine();
+        // проверим правильность записи
+        if (validateIP(input2))
+        {
+            System.out.println("OK, valid.");
+        }
+        else
+        {
+            System.out.println("Not valid.");
+            return;
+        }
         // для каждого long i между начальным и конечным адресами,
         // распечатать flhtc, предварительно переведя его в string
         for (long i = ipToLong(input1) + 1; i < ipToLong(input2); i++)
             System.out.println(longToIp(i));
     }
     
-    // Метод для преобразования строки с IP адресом в long
+    // метод для валидации строк как IP-адресов, записанных в
+    // точко-десятичном формате
+    
+    static private boolean validateIP(String input)
+    {
+        int[] ip = new int[4];
+        String[] parts = input.split("\\.");
+
+        for (int i = 0; i < 4; i++) {
+            try {
+                ip[i] = Integer.parseInt(parts[i]);
+            } catch (NumberFormatException formatEx) {
+                return false;
+            }
+            if ((ip[i] < 0) || (ip[i] > 255))
+                return false;
+        }
+        return ip[0] != 0;
+        
+    }
+
+// Метод для преобразования строки с IP адресом в long
     public static long ipToLong(String ipAddress) {
         long result = 0;
         String[] atoms = ipAddress.split("\\.");
