@@ -43,7 +43,7 @@ public class IPIterator
     // метод для валидации строк как IP-адресов, записанных в
     // точко-десятичном формате
     
-    static private boolean validateIP(String input)
+    static public boolean validateIP(String input)
     {
         int[] ip = new int[4];
         String[] parts = input.split("\\.");
