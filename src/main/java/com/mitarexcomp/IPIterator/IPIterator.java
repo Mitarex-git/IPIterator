@@ -8,10 +8,10 @@ public class IPIterator
 {
     public static void main( String[] args )
     {
-        // запросим у пользователя начальный адрес
+        // Р·Р°РїСЂРѕСЃРёРј Сѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅР°С‡Р°Р»СЊРЅС‹Р№ Р°РґСЂРµСЃ
         System.out.println("Please enter the starting IP adress:");
         String input1 = System.console().readLine();
-        // проверим правильность записи
+        // РїСЂРѕРІРµСЂРёРј РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ Р·Р°РїРёСЃРё
         if (validateIP(input1))
         {
             System.out.println("OK, valid.");
@@ -21,10 +21,10 @@ public class IPIterator
             System.out.println("Not valid.");
             return;
         }
-        // запросим у пользователя конечный адрес
+        // Р·Р°РїСЂРѕСЃРёРј Сѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РєРѕРЅРµС‡РЅС‹Р№ Р°РґСЂРµСЃ
         System.out.println("Please enter the ending IP adress:");
         String input2 = System.console().readLine();
-        // проверим правильность записи
+        // РїСЂРѕРІРµСЂРёРј РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ Р·Р°РїРёСЃРё
         if (validateIP(input2))
         {
             System.out.println("OK, valid.");
@@ -34,14 +34,14 @@ public class IPIterator
             System.out.println("Not valid.");
             return;
         }
-        // для каждого long i между начальным и конечным адресами,
-        // распечатать flhtc, предварительно переведя его в string
+        // РґР»СЏ РєР°Р¶РґРѕРіРѕ long i РјРµР¶РґСѓ РЅР°С‡Р°Р»СЊРЅС‹Рј Рё РєРѕРЅРµС‡РЅС‹Рј Р°РґСЂРµСЃР°РјРё,
+        // СЂР°СЃРїРµС‡Р°С‚Р°С‚СЊ Р°РґСЂРµСЃ, РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕ РїРµСЂРµРІРµРґСЏ РµРіРѕ РІ string
         for (long i = ipToLong(input1) + 1; i < ipToLong(input2); i++)
             System.out.println(longToIp(i));
     }
     
-    // метод для валидации строк как IP-адресов, записанных в
-    // точко-десятичном формате
+    // РјРµС‚РѕРґ РґР»СЏ РІР°Р»РёРґР°С†РёРё СЃС‚СЂРѕРє РєР°Рє IP-Р°РґСЂРµСЃРѕРІ, Р·Р°РїРёСЃР°РЅРЅС‹С… РІ
+    // С‚РѕС‡РєРѕ-РґРµСЃСЏС‚РёС‡РЅРѕРј С„РѕСЂРјР°С‚Рµ
     
     static public boolean validateIP(String input)
     {
@@ -61,7 +61,7 @@ public class IPIterator
         
     }
 
-// Метод для преобразования строки с IP адресом в long
+// РњРµС‚РѕРґ РґР»СЏ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ СЃС‚СЂРѕРєРё СЃ IP Р°РґСЂРµСЃРѕРј РІ long
     public static long ipToLong(String ipAddress) {
         long result = 0;
         String[] atoms = ipAddress.split("\\.");
@@ -73,7 +73,7 @@ public class IPIterator
         return result & 0xFFFFFFFF;
     }
 	
-    // Метод для преобразования IP адреса в строку
+    // РњРµС‚РѕРґ РґР»СЏ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ IP Р°РґСЂРµСЃР° РІ СЃС‚СЂРѕРєСѓ
     public static String longToIp(long ip) {
         StringBuilder sb = new StringBuilder(15);
 
