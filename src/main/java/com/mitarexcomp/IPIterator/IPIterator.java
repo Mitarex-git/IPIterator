@@ -8,7 +8,14 @@ public class IPIterator
 {
     public static void main( String[] args )
     {
-        System.out.println( "No code yet!" );
+        System.out.println("Please enter the starting IP adress:");
+        String input1 = System.console().readLine();
+        System.out.println("Please enter the ending IP adress:");
+        String input2 = System.console().readLine();
+        // для каждого long i между начальным и конечным адресами,
+        // распечатать flhtc, предварительно переведя его в string
+        for (long i = ipToLong(input1) + 1; i < ipToLong(input2); i++)
+            System.out.println(longToIp(i));
     }
     
     // Метод для преобразования строки с IP адресом в long
